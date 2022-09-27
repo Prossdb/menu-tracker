@@ -1,15 +1,15 @@
 const mongoose = require ('mongoose')
 
 let menuSchema = new mongoose.Schema({
-    name: {type:String, require:True},
-    icon: {type:String, require:True},
-    menuUrl: {type:String, require:True},
+    name: {type:String, require:true},
+    icon: {type:String, require:true},
+    menuUrl: {type:String, require:true},
     entryDate: {type:Date, default:Date.now}
 })
 
 let usersSchema = new mongoose.Schema({
-    email: {type:String, require:True},
-    password: {type:String, require:True},
+    email: {type:String, require:true},
+    password: {type:String, require:true},
     entryDate: {type:Date, default:Date.now}
 })
 

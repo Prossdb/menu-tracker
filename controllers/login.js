@@ -68,11 +68,11 @@ exports.postLogin = async (req, res) => {
                 })
             }
         })
-        }
+        
         res.render('login', {title:'Login', loggedIn: false, error: 'Please login with your new account'});
-    }else{
+    } else {
         res.render('new-acct', {title: 'New Account', loggedIn: false, error:'All fields are required. Please check and try again.'})
     }
        
-    }
-    
+}
+};
