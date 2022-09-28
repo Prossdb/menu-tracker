@@ -33,7 +33,7 @@ module.exports = {
         } else {
             let menu = schemas.menu
             let menuId = req.params.id
-            let qry = {_id:id}
+            let qry = {_id:menuId}
             let deleteResult = await menu.deleteOne(qry)
             res.redirect('/')
         }
@@ -78,7 +78,7 @@ module.exports = {
             let qry = {name:menuName}
 
             let searchResults = await menu.findOne(qry)
-            .then(async (menuData) => {
+            .then(async (menuData) => {         //userData
                 if (!menuData) {
                     let newMenu = new schemas.menu({
                         name: menuName,

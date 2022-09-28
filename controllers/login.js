@@ -1,6 +1,5 @@
 const schemas = require('../models/schemas.js')
 const bcrypt = require('bcrypt')
-const { session } = require('passport')
 
 exports.getLogin = (req, res) => {
     res.render('login', {title: 'Login', loggedIn: false, error:null})
@@ -20,10 +19,11 @@ exports.postLogin = async (req, res) => {
     let pass = req.body.pwdInput
     let loginSuccess = false
     let sesh = req.session
-    session.loggedIn = false
+    sesh.loggedIn = false
+    console.log(pass)
 
-    let users = schemas.users
-    let qry = {email:email}
+    let users = schemas.users;
+    let qry = {email:email};
 
     if (email !== '' && pass !== '' ) {
         let usersResult = await users.findOne(qry)

@@ -13,7 +13,7 @@ module.exports = {
     getSearch: async (req, res) => {
         let menu = schemas.menu
         let sesh = req.session 
-        let query = req.body.searchInput
+        let q = req.body.searchInput
         let menuData = null
         let qry = { name:{$regex:'^' + q, $options:'i'}};
     
@@ -31,7 +31,7 @@ module.exports = {
             })
         }
         
-        res.render('index', {title: 'Menu Tracker', data: menuData, search: q, loggedIn: sesh.loggedIn})
+        res.render('index', {title: 'Menu Tracker', data: menuData, search: '', loggedIn: sesh.loggedIn})
     }
 }
      
